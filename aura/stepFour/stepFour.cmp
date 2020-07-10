@@ -1,0 +1,49 @@
+<aura:component implements="flexipage:availableForAllPageTypes,lightning:isUrlAddressable" access="global">
+    <aura:attribute name="title" type="String"/>
+    <aura:attribute name="pageReference" type="Object"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <lightning:navigation aura:id="navService"/>
+    <aura:attribute name="ProductItem" type="ProductItem" default="{ 'sobjectType': 'ProductItem'}"/>
+
+    <div class="slds-box slds-box_small slds-theme_shade">
+        <div class="page-section page-header slds-align_absolute-center slds-border_bottom slds-m-bottom_xx-large">
+            <h1 class="slds-text-heading_medium slds-m-bottom_medium">New Product Item</h1>
+        </div>
+
+        <div class="slds-m-top_medium">
+            <lightning:messages />
+            <div class="slds-grid slds-m-bottom_xx-large">
+                <div class="slds-col slds-size_1-of-2 slds-p-right_medium slds-p-left_medium">
+                    <div class="slds-m-top_medium">
+                        <label class="slds-form-element__label" for="Product2Id"><abbr class="slds-required" title="required">* </abbr>Product Name</label>
+                        <force:inputField aura:id="Product2Id"  value="{!v.ProductItem.Product2Id}" change="{!c.handleChange}" required="true"/>
+                    </div>
+                    <div class="slds-m-top_medium">
+                        <label class="slds-form-element__label" for="QuantityOnHand"><abbr class="slds-required" title="required">* </abbr>Quantity On Hand</label>
+                        <force:inputField aura:id="QuantityOnHand"  value="{!v.ProductItem.QuantityOnHand}" change="{!c.handleChange}" required="true"/>
+                    </div>
+                    <div class="slds-m-top_medium">
+                        <label class="slds-form-element__label" for="SerialNumber">Serial Number</label>
+                        <force:inputField aura:id="SerialNumber"  value="{!v.ProductItem.SerialNumber}" change="{!c.handleChange}" />
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-p-right_medium slds-p-left_medium">
+                    <div class="slds-m-top_medium">
+                        <label class="slds-form-element__label" for="LocationId"><abbr class="slds-required" title="required">* </abbr>Location</label>
+                        <force:inputField aura:id="LocationId"  value="{!v.ProductItem.LocationId}" change="{!c.handleChange}" required="true"/>
+                    </div>
+                    <div class="slds-m-top_medium slds-m-bottom_xx-large">
+                        <label class="slds-form-element__label" for="QuantityUnitOfMeasure">Quantity Unit Of Measure</label>
+                        <force:inputField aura:id="QuantityUnitOfMeasure"  value="{!v.ProductItem.QuantityUnitOfMeasure}" change="{!c.handleChange}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-m-top_medium slds-clearfix">
+            <div class="slds-float_right">
+                <lightning:button variant="brand" label="Save" onclick="{!c.navigateToCmp4}" />
+            </div>
+        </div>
+    </div>
+</aura:component>
