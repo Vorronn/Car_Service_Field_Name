@@ -1,9 +1,10 @@
 <aura:component controller="WorkTypeFieldServiceController" implements="flexipage:availableForAllPageTypes,lightning:isUrlAddressable" access="global" >
-    <aura:attribute name="title" type="String"/>
+    <aura:attribute name="workTypeId" type="String" />
     <aura:attribute name="pageReference" type="Object"/>
-    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
     <lightning:navigation aura:id="navService"/>
-    <aura:attribute name="ProductRequired" type="ProductRequired" default="{ 'sobjectType': 'ProductRequired'}"/>
+    <aura:attribute name="WorkType" type="WorkType" default="{ 'sobjectType': 'WorkType' }"/>
+    <aura:attribute name="ProductRequired" type="ProductRequired" default="{ 'sobjectType': 'ProductRequired' }"/>
 
     <div class="slds-box slds-box_small slds-theme_shade">
         <div class="page-section page-header slds-align_absolute-center slds-border_bottom slds-m-bottom_xx-large">
@@ -12,20 +13,20 @@
 
         <div class="slds-m-top_medium">
             <div class="slds-m-top_medium">
-                <label class="slds-form-element__label" for="ParentRecordId"><abbr class="slds-required" title="required">* </abbr>Parent Record</label>
-                <force:inputField aura:id="ParentRecordId"  value="{!v.ProductRequired.ParentRecordId}" change="{!c.handleChange}" required="true"/>
+                <label class="slds-form-element__label" for="ProductR"><abbr class="slds-required" title="required">* </abbr>Parent Record</label>
+                <force:inputField aura:id="ProductR"  value="{!v.WorkType.Id}" change="{!c.handleChange}" required="true"/>
             </div>
             <div class="slds-m-top_medium">
-                <label class="slds-form-element__label" for="Product2Id"><abbr class="slds-required" title="required">* </abbr>Product Name</label>
-                <force:inputField aura:id="Product2Id"  value="{!v.ProductRequired.Product2Id}" change="{!c.handleChange}" required="true"/>
+                <label class="slds-form-element__label" for="ProductR"><abbr class="slds-required" title="required">* </abbr>Product Name</label>
+                <force:inputField aura:id="ProductR"  value="{!v.ProductRequired.Product2Id}" change="{!c.handleChange}" required="true"/>
             </div>
             <div class="slds-m-top_medium">
-                <label class="slds-form-element__label" for="QuantityRequired">Quantity Required</label>
-                <force:inputField aura:id="QuantityRequired" value="{!v.ProductRequired.QuantityRequired}" change="{!c.handleChange}"/>
+                <label class="slds-form-element__label" for="ProductR">Quantity Required</label>
+                <force:inputField aura:id="ProductR" value="{!v.ProductRequired.QuantityRequired}" change="{!c.handleChange}"/>
             </div>
             <div class="slds-m-top_medium slds-m-bottom_xx-large">
-                <label class="slds-form-element__label" for="QuantityUnitOfMeasure">Quantity Unit Of Measure</label>
-                <force:inputField aura:id="QuantityUnitOfMeasure" value="{!v.ProductRequired.QuantityUnitOfMeasure}" change="{!c.handleChange}"/>
+                <label class="slds-form-element__label" for="ProductR">Quantity Unit Of Measure</label>
+                <force:inputField aura:id="ProductR" value="{!v.ProductRequired.QuantityUnitOfMeasure}" change="{!c.handleChange}"/>
             </div>
 
         </div>

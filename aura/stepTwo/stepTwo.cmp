@@ -1,27 +1,39 @@
-<aura:component implements="flexipage:availableForAllPageTypes,lightning:isUrlAddressable" access="global" >
-    <aura:attribute name="title" type="String"/>
+<aura:component implements="flexipage:availableForAllPageTypes,lightning:isUrlAddressable, force:hasRecordId" access="global" >
+    <aura:attribute name="workTypeId" type="String" />
     <aura:attribute name="pageReference" type="Object"/>
-    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
     <lightning:navigation aura:id="navService"/>
+
+
 
     <div class="slds-box slds-box_small slds-theme_shade">
         <div class="page-section page-header slds-align_absolute-center slds-border_bottom">
             <h1 class="slds-text-heading_medium slds-m-bottom_medium">New Skill Requirement</h1>
         </div>
-
+        
         <div class="slds-m-top_medium">
-            <lightning:recordEditForm aura:id="recordEditForm" objectApiName="SkillRequirement">
+            <lightning:recordEditForm   aura:id="recordEditForm" 
+                                        objectApiName="SkillRequirement"
+                                        onsuccess="{!c.handleSuccess}"
+                                        onerror="{!c.handleError}">
                 <lightning:messages />
-                <lightning:inputField fieldName="RelatedRecordId" />
+                <lightning:inputField fieldName="RelatedRecordId" value="{!v.workTypeId}"/>
                 <lightning:inputField fieldName="SkillId" />
                 <lightning:inputField fieldName="SkillLevel" />
+                <div class="slds-clearfix">
+                    <div class="slds-float_right">
+                        <lightning:button variant="brand" type="submit" label="Next" />
+                    </div>
+                </div>
             </lightning:recordEditForm>
-        </div>
-        <div class="slds-m-top_medium slds-clearfix">
-            <div class="slds-float_right">
-                <lightning:button variant="brand" type="submit" label="Next" onclick="{!c.navigateToCmp3}" />
-            </div>
+
         </div>
     </div>
 
 </aura:component>
+<!--<aura:component implements="flexipage:availableForAllPageTypes, lightning:isUrlAddressable" description="c:helloTarget component">
+    <aura:attribute name="firstname" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    Hello {!v.firstname}.
+   
+</aura:component>-->
