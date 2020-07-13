@@ -1,15 +1,20 @@
-<aura:component implements="flexipage:availableForAllPageTypes,lightning:isUrlAddressable" access="global">
-    <aura:attribute name="title" type="String"/>
+<aura:component controller="WorkTypeFieldServiceController" implements="flexipage:availableForAllPageTypes,lightning:isUrlAddressable, force:hasRecordId,force:appHostable" access="global">
+    <aura:attribute name="Product" type="String"/>
     <aura:attribute name="pageReference" type="Object"/>
-    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
     <lightning:navigation aura:id="navService"/>
-    <aura:attribute name="ProductItem" type="ProductItem" default="{ 'sobjectType': 'ProductItem'}"/>
+    <aura:attribute name="ProductItem" type="ProductItem" default="{ 'sobjectType': 'ProductItem',
+                                                                    'Product2Id': '','QuantityOnHand': '',
+                                                                    'SerialNumber': '', 'LocationId': '',
+                                                                    'QuantityUnitOfMeasure': ''}"/>
 
-    <div class="slds-box slds-box_small slds-theme_shade">
+    <div class="slds-box slds-box_small slds-theme_default">
+        <!-- Название компонента -->
         <div class="page-section page-header slds-align_absolute-center slds-border_bottom slds-m-bottom_xx-large">
             <h1 class="slds-text-heading_medium slds-m-bottom_medium">New Product Item</h1>
         </div>
-
+        <!-- Название компонента -->
+        <!-- Форма для создания ProductItem -->
         <div class="slds-m-top_medium">
             <lightning:messages />
             <div class="slds-grid slds-m-bottom_xx-large">
@@ -45,5 +50,7 @@
                 <lightning:button variant="brand" label="Save" onclick="{!c.navigateToCmp4}" />
             </div>
         </div>
+        <!-- Форма для создания ProductItem -->
+
     </div>
 </aura:component>

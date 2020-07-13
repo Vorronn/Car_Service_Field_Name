@@ -1,18 +1,25 @@
 <aura:component implements="flexipage:availableForAllPageTypes,lightning:isUrlAddressable" access="global" >
-	<aura:attribute name="title" type="String"/>
+    <aura:attribute name="workOrderId" type="String" />
     <aura:attribute name="pageReference" type="Object"/>
-    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
     <lightning:navigation aura:id="navService"/>
 
 
-    <div class="slds-box slds-box_small slds-theme_shade">
+    <div class="slds-box slds-box_small slds-theme_default">
+        <!-- Название компонента -->
         <div class="page-section page-header slds-align_absolute-center slds-border_bottom ">
             <h1 class="slds-text-heading_medium slds-m-bottom_medium">New Work Order</h1>
         </div>
-    
+        <!-- Название компонента -->
+        <!-- Содание формы WorkOrder -->
         <div class="slds-m-top_medium">
-            <lightning:recordEditForm aura:id="recordEditForm" objectApiName="WorkOrder">
+            <lightning:recordEditForm   aura:id="recordEditForm" 
+                                        objectApiName="WorkOrder" 
+                                        onsuccess="{!c.handleSuccess}"        
+                                        onerror="{!c.handleError}">
+
                 <lightning:messages />
+
                 <div class="slds-grid">
                     <div class="slds-col slds-size_1-of-2">
                         <lightning:inputField fieldName="Status" />
@@ -24,12 +31,16 @@
                 </div>
                 <lightning:inputField fieldName="Subject" />
                 <lightning:inputField fieldName="Description" />
+
+                <div class="slds-clearfix">
+                    <div class="slds-float_right">
+                        <lightning:button variant="brand" type="submit" label="Next"/>
+                    </div>
+                </div>
+
             </lightning:recordEditForm>
         </div>
-        <div class="slds-clearfix">
-            <div class="slds-float_right">
-                <lightning:button variant="brand" type="submit" label="Next" onclick="{!c.navigateToCmp2}" />
-            </div>
-        </div>
+        <!-- Содание формы WorkOrder -->
+
     </div>    
 </aura:component>

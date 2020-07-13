@@ -4,37 +4,36 @@
     <aura:handler name="init" value="{! this }" action="{! c.init }"/>
     <lightning:navigation aura:id="navService"/>
 
-    <div class="slds-box slds-box_small slds-theme_shade">
+    <div class="slds-box slds-box_small slds-theme_default">
+        <!-- Название компонента -->
         <div class="page-section page-header slds-align_absolute-center slds-border_bottom ">
             <h1 class="slds-text-heading_medium slds-m-bottom_medium">New Work Type</h1>
         </div>
-    
+        <!-- Название компонента -->
+
+        <!-- Создание формы WorkType -->
         <div class="slds-m-top_medium">
             <lightning:recordEditForm   aura:id="recordEditForm" 
                                         objectApiName="WorkType" 
                                         onsuccess="{!c.handleSuccess}"
-                                        onerror="{!c.handleError}"
-                                        
-                                        >
+                                        onerror="{!c.handleError}">
+
                 <lightning:messages />
                 <lightning:inputField fieldName="Name"/>
                 <lightning:inputField fieldName="Description" />
                 <lightning:inputField fieldName="EstimatedDuration"/>
                 <lightning:inputField fieldName="DurationType"/>
                 <lightning:inputField fieldName="ShouldAutoCreateSvcAppt" />
+
                 <div class="slds-clearfix">
                     <div class="slds-float_right">
                         <lightning:button variant="brand" type="submit" label="Next" />
                     </div>
                 </div>
+
             </lightning:recordEditForm>
-        </div>
+        </div>        
+        <!-- Создание формы WorkType -->
 
     </div>
 </aura:component>
-<!--<aura:component description="c:hello component" implements="flexipage:availableForAllPageTypes, lightning:isUrlAddressable">
-    <aura:attribute name="pageReference" type="Object"/>
-    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
-    <lightning:navigation aura:id="navService"/>
-    <lightning:button label="Navigate" onclick="{!c.handleClick}"/>
-</aura:component>-->
